@@ -26,8 +26,7 @@ public class Model {
             Connection conn = DBConnection.getInstance();
             this.gateway = new WatchTableGateway(conn);
 
-            // this is commented out until we implement it later on
-              this.watches = gateway.getWatches();
+            this.watches = gateway.getWatches();
 
         }
         catch (ClassNotFoundException ex) {
@@ -65,6 +64,16 @@ public class Model {
 
     public boolean addWatch (Watch w) {
         return (gateway.insertWatch(w));
+
+
+    }
+
+    public boolean deleteWatch(int id) {
+            return(gateway.deleteWatch(id));
+    }
+
+    public boolean updateWatch (int id) {
+        return (gateway.updateWatch(id));
 
 
     }
